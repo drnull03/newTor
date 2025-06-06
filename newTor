@@ -15,6 +15,6 @@ ok_count=$(echo "$getNew" | grep -c "250 OK")
 if [ "$ok_count" -eq 2 ]; then
     echo -e "${GREEN}Successfully got a new circuit ${NC}"
 else
-    echo "${RED} Some ERROR Accured ${NC}"
+    echo -e "${RED} Some ERROR Accured ${NC}"
 fi
 
