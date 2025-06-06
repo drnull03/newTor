@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+#Colors
+RED='\e[31m'
+YELLOW='\e[33m'
+GREEN='\e[32m'
+NC='\e[0m' 
+
+
+getNew=$(echo -e 'AUTHENTICATE ""\nSIGNAL NEWNYM\nQUIT\n' | nc 127.0.0.1 9051)
+
+
+ok_count=$(echo "$getNew" | grep -c "250 OK")
+if [ "$ok_count" -eq 2 ]; then
+    echo -e "${GREEN}Successfully got a new circuit ${NC}"
+else
+    echo "${RED} Some ERROR Accured ${NC}"
+fi
+
